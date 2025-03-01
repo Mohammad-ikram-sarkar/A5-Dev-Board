@@ -1,238 +1,49 @@
-// btn - 1
-const btn1 = document.getElementById("btn-1");
 
-btn1.addEventListener("click", (event) => {
- 
-  alert("board updated successfully");
-
-  const tack = parseInt(document.getElementById("total-taskcount").innerText);
-  console.log(tack)
-
-  const  completed = parseInt(document.getElementById("completed-task").innerText);
-  console.log(completed)
-  document.getElementById("completed-task").innerText = completed + 1;
-
-  if (tack > 0) {
-    document.getElementById("total-taskcount").innerText = tack - 1;
-  } else {
-    document.getElementById("total-taskcount").innerText = 0;
-  }
-
-  const history = document.getElementById("history");
-
-  const p = document.createElement("div");
-
-  
-
-  p.setAttribute("style" , "background-color: #F4F7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;");
-
-  p.innerText = `you have completed the tack Fix Mobile Button Issue ${time()}`;
-
-  history.appendChild(p);
-
- const btn1 =  document.getElementById("btn-1")
-
- btn1.setAttribute("disabled" , "true");
+const buttons = [
+  { id: "btn-1", text: "Fix Mobile Button Issue" },
+  { id: "btn-2", text: "Add Pay Success Modal" },
+  { id: "btn-3", text: "Add new reaction 🤲" },
+  { id: "btn-4", text: "Fix Video Loading Issue" },
+  { id: "btn-5", text: "Integrate AI search" },
+  { id: "btn-6", text: "Review Ami Probashi Site" }
+];
 
 
-})
+buttons.forEach(btn => {
+  document.getElementById(btn.id).addEventListener('click', () => {
+    updateBoard(btn.id, btn.text);
+  });
+});
 
+function updateBoard(buttonId, description) {
+  alert("Board updated successfully"); 
 
-//btn -2
+  const totalEl = document.getElementById("total-taskcount");
+  const completedEl = document.getElementById("completed-task");
 
+  const newCompleted = parseInt(completedEl.textContent) + 1;
+  completedEl.textContent = newCompleted;
 
-const btn2 = document.getElementById("btn-2").addEventListener("click", (event) => {
- 
-  alert("board updated successfully");
-
-  const tack = parseInt(document.getElementById("total-taskcount").innerText);
-  console.log(tack)
-
-  const  completed = parseInt(document.getElementById("completed-task").innerText);
-  console.log(completed)
-  document.getElementById("completed-task").innerText = completed + 1;
-
-  if (tack > 0) {
-    document.getElementById("total-taskcount").innerText = tack - 1;
-  } else {
-    document.getElementById("total-taskcount").innerText = 0;
-  }
-
-  const history = document.getElementById("history");
-
-  const p = document.createElement("div");
+  const newTotal = Math.max(parseInt(totalEl.textContent) - 1, 0);
+  totalEl.textContent = newTotal;
 
   
+  document.getElementById(buttonId).disabled = true;
 
-  p.setAttribute("style" , "background-color: #F4F7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;");
 
-  p.innerText = `you have completed the tack Add Pay Success Modal at ${time()}`;
-
-  history.appendChild(p);
-
- const btn1 =  document.getElementById("btn-2")
-
- btn1.setAttribute("disabled" , "true");
-
- 
-})
-
-// btn-3 
-
-const btn3 = document.getElementById("btn-3").addEventListener("click", (event) => {
- 
-  alert("board updated successfully");
-
-  const tack = parseInt(document.getElementById("total-taskcount").innerText);
-  console.log(tack)
-
-  const  completed = parseInt(document.getElementById("completed-task").innerText);
-  console.log(completed)
-  document.getElementById("completed-task").innerText = completed + 1;
-
-  if (tack > 0) {
-    document.getElementById("total-taskcount").innerText = tack - 1;
-  } else {
-    document.getElementById("total-taskcount").innerText = 0;
-  }
-
-  const history = document.getElementById("history");
-
-  const p = document.createElement("div");
-
+  const historyItem = document.createElement("div");
+  historyItem.className = "history-entry";
+  historyItem.textContent = `You have completed the task ${description} at ${new Date().toLocaleTimeString()}`;
   
+  document.getElementById("history").appendChild(historyItem);
+  historyItem.style.backgroundColor = "#F4F7FF";
+  historyItem.style.padding = "15px";
 
-  p.setAttribute("style" , "background-color: #F4F7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;");
-
-  p.innerText = `you have completed the tack Add new reaction 🤲 at ${time()}`;
-
-  history.appendChild(p);
-
- const btn1 =  document.getElementById("btn-3")
-
- btn1.setAttribute("disabled" , "true");
-
- 
-})
-
-// btn- 4 
-
-const btn4 = document.getElementById("btn-4").addEventListener("click", (event) => {
- 
-  alert("board updated successfully");
-
-  const tack = parseInt(document.getElementById("total-taskcount").innerText);
-  console.log(tack)
-
-  const  completed = parseInt(document.getElementById("completed-task").innerText);
-  console.log(completed)
-  document.getElementById("completed-task").innerText = completed + 1;
-
-  if (tack > 0) {
-    document.getElementById("total-taskcount").innerText = tack - 1;
-  } else {
-    document.getElementById("total-taskcount").innerText = 0;
+  if (newTotal === 0) {
+    alert("congrates!!! you have completed all tasks");
   }
-
-  const history = document.getElementById("history");
-
-  const p = document.createElement("div");
-
-  
-
-  p.setAttribute("style" , "background-color: #F4F7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;");
-
-  p.innerText = `you have completed the tack Fix Video Loading Issue at ${time()}`;
-
-  history.appendChild(p);
-
- const btn1 =  document.getElementById("btn-4")
-
- btn1.setAttribute("disabled" , "true");
-
- 
-})
-
-
-// btn - 5 
-
-const btn5 = document.getElementById("btn-5").addEventListener("click", (event) => {
- 
-  alert("board updated successfully");
-
-  const tack = parseInt(document.getElementById("total-taskcount").innerText);
-  console.log(tack)
-
-  const  completed = parseInt(document.getElementById("completed-task").innerText);
-  console.log(completed)
-  document.getElementById("completed-task").innerText = completed + 1;
-
-  if (tack > 0) {
-    document.getElementById("total-taskcount").innerText = tack - 1;
-  } else {
-    document.getElementById("total-taskcount").innerText = 0;
-  }
-
-  const history = document.getElementById("history");
-
-  const p = document.createElement("div");
-
-  
-
-  p.setAttribute("style" , "background-color: #F4F7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;");
-
-  p.innerText = `you have completed the tack Integrate AI search at ${time()}`;
-
-  history.appendChild(p);
-
- const btn1 =  document.getElementById("btn-5")
-
- btn1.setAttribute("disabled" , "true");
-
- 
-})
-
-
-
-// btn - 6
-
-const btn6 = document.getElementById("btn-6").addEventListener("click", (event) => {
- 
-  alert("board updated successfully");
-
-  const tack = parseInt(document.getElementById("total-taskcount").innerText);
-  console.log(tack)
-
-  const  completed = parseInt(document.getElementById("completed-task").innerText);
-  console.log(completed)
-  document.getElementById("completed-task").innerText = completed + 1;
-
-  if (tack > 0) {
-    document.getElementById("total-taskcount").innerText = tack - 1;
-  } else {
-    document.getElementById("total-taskcount").innerText = 0;
-  }
-
-  const history = document.getElementById("history");
-
-  const p = document.createElement("div");
-
-  
-
-  p.setAttribute("style" , "background-color: #F4F7FF; padding: 15px; border-radius: 5px; margin-bottom: 15px;");
-
-  p.innerText = `you have completed the tack Review Ami Probashi Site at ${time()}`;
-
-  history.appendChild(p);
-
- const btn1 =  document.getElementById("btn-6")
-
- btn1.setAttribute("disabled" , "true");
-
- 
-})
+}
 
 const historyClear = document.getElementById("clear-btn").addEventListener("click", (event) => {
   document.getElementById("history").innerHTML = "";
 })
-
